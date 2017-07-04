@@ -12,8 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
+
 /** Note that here we are inheriting ListActivity class instead of Activity class **/
-public class MainActivity extends ListActivity {
+public class MainActivity extends AppCompatActivity{
     ListView listView;
     /** Items entered by the user is stored in this ArrayList variable */
     ArrayList<String> list = new ArrayList<String>();
@@ -26,10 +28,11 @@ public class MainActivity extends ListActivity {
 
         /** Setting a custom layout for the list activity */
         setContentView(R.layout.activity_main);
-        listView=getListView();
+
         /** Reference to the button of the layout main.xml */
         Button btn = (Button) findViewById(R.id.btnAdd);
-        final ListView et = (ListView)findViewById(R.id.list);
+
+      listView= (ListView) findViewById(R.id.list);
         /** Defining the ArrayAdapter to set items to ListView */
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
         /** Defining a click event listener for the button "Add" */
@@ -51,10 +54,10 @@ public class MainActivity extends ListActivity {
             @Override
             public void onItemClick(AdapterView<?>parent,View view,
                                     int position,long id) {
-
+            TextView t=(TextView)view;
                 Intent myintent = new Intent(view.getContext(), Main2Activity.class);
 
-                myintent.putExtra("userName",et.getTextFilter().toString());
+                myintent.putExtra("userName",t.getText().toString());
 
                 startActivity(myintent);
 

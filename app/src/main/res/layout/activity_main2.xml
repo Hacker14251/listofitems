@@ -12,5 +12,5 @@ tools:context="hp.example.com.listofitems.Main2Activity">
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"
-    android:="message" />
+    />
 </RelativeLayout>
